@@ -10,6 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('zerocoin-theme');
+        if (savedTheme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.documentElement.classList.add('light');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -29,25 +42,92 @@
 
       <nav class="nav">
         <a href="#markets">Ринки <span>▾</span></a>
+        <a href="#about">Про нас <span>▾</span></a>
+        <a href="#how-to-buy">Як купити <span>▾</span></a>
         <a href="#trade">Торгівля <span>▾</span></a>
-        <a href="#futures">Ф'ючерси <span>▾</span></a>
         <a href="#earn">Заробляти <span>▾</span></a>
-        <a href="#more">Ще <span>▾</span></a>
       </nav>
 
       <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Змінити тему" title="Змінити тему">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
         <a href="#" class="login">Увійти</a>
-        <a href="#" class="btn btn-blue">Зареєструватися</a>
+        <a href="#" class="btn btn-blue btn-header-register">Зареєструватися</a>
         <div class="lang">
           <img src="images/zondiconws_network.png" alt="Lang" class="lang-icon">
           <span>UA</span>
+        </div>
+
+        <button class="burger-btn" id="burger-btn" type="button" aria-label="Меню навігації" aria-expanded="false">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="#markets" class="mobile-nav-link">Ринки</a>
+        <a href="#about" class="mobile-nav-link">Про нас</a>
+        <a href="#how-to-buy" class="mobile-nav-link">Як купити</a>
+        <a href="#trade" class="mobile-nav-link">Торгівля</a>
+        <a href="#earn" class="mobile-nav-link">Заробляти</a>
+      </nav>
+
+      <div class="mobile-theme-row">
+        <span class="mobile-theme-label">Тема сайту:</span>
+        <button id="mobile-theme-toggle" class="mobile-theme-btn" type="button" aria-label="Змінити тему">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-text">Світла тема</span>
+        </button>
+      </div>
+
+      <div class="mobile-actions">
+        <a href="#" class="btn btn-outline-mobile">Увійти</a>
+        <a href="#" class="btn btn-blue btn-full">Зареєструватися</a>
+      </div>
+
+      <div class="mobile-footer">
+        <div class="lang">
+          <img src="images/zondiconws_network.png" alt="Lang" class="lang-icon">
+          <span>UA (Українська)</span>
         </div>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="hero section">
+    <section id="trade" class="hero section">
       <div class="container hero-grid">
         <div class="hero-text">
           <h1>Торгуйте<br>з упевненістю<br>на <span class="highlight">новій хвилі</span></h1>
@@ -108,7 +188,7 @@
       </div>
     </section>
 
-    <section class="about section">
+    <section id="about" class="about section">
       <div class="container">
         <div class="glass-card about-card">
           <div class="about-info">
@@ -242,7 +322,7 @@
       </div>
     </section>
 
-    <section class="steps-section section">
+    <section id="how-to-buy" class="steps-section section">
       <div class="container">
         <div class="glass-card steps-card">
           <h2>Як купити криптовалюту</h2>
@@ -303,7 +383,7 @@
       </div>
     </section>
 
-    <section class="cta-section section">
+    <section id="earn" class="cta-section section">
       <div class="container">
         <div class="glass-card cta-card">
           <div class="cta-text">
@@ -411,6 +491,7 @@
     </div>
   </footer>
 
+  <script src="theme.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
